@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply bg-bg text-text font-sans;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #__nuxt {
+    height: 100%;
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+}
+
+@layer components {
+  .input-base {
+    @apply w-full bg-surface border border-border text-text placeholder-muted
+           rounded-lg px-3.5 py-2.5 text-sm outline-none
+           focus:border-green/30 transition-colors duration-200
+           appearance-none font-sans;
+  }
+
+  .btn-primary {
+    @apply bg-green text-bg font-semibold text-sm px-5 py-2.5
+           rounded-lg active:opacity-75 transition-opacity cursor-pointer border-none;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent border border-border text-muted text-xs
+           px-3.5 py-2 rounded-lg cursor-pointer font-sans
+           hover:border-green hover:text-green transition-colors duration-200;
+  }
+
+  .card-base {
+    @apply bg-card border border-border rounded-xl p-4;
+  }
+
+  .section-label {
+    @apply text-[11px] text-muted uppercase tracking-widest mb-3;
+  }
+
+  .del-btn {
+    @apply bg-transparent border-none text-muted text-2xl leading-none
+           px-1.5 cursor-pointer hover:text-red transition-colors duration-200;
+  }
+
+  .edit-btn {
+    @apply bg-transparent border-none text-muted text-sm leading-none
+           px-1.5 py-1 cursor-pointer hover:text-green transition-colors duration-200;
+  }
+
+  .tag {
+    @apply text-[10px] bg-border text-muted px-2 py-0.5 rounded;
+  }
+}
+
+@media print {
+  html,
+  body,
+  #__nuxt {
+    height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  header,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+  main {
+    overflow: visible !important;
+  }
+  .card-base {
+    border-color: #bbb !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .text-muted,
+  .text-green,
+  .text-red,
+  .text-blue,
+  .text-orange,
+  .text-purple {
+    color: #000 !important;
+  }
+  .section-label {
+    color: #444 !important;
+  }
+  .report-root,
+  .report-root * {
+    color: #000 !important;
+  }
+  .report-root {
+    background: #fff !important;
+  }
+}
